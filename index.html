@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sole Mio - Paneles Solares | Ahorra hasta 90% en tu factura eléctrica</title>
+    <meta name="description" content="Instala paneles solares y reduce tu factura eléctrica hasta 90%. Consulta gratuita y financiación disponible. ¡Cotiza ahora!">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #c8d631;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: "🌞";
+            background: linear-gradient(45deg, #c8d631, #d4e157);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        .cta-button {
+            background: #c8d631;
+            color: #1e3c72;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background: #d4e157;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="25" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="25" cy="75" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .btn-primary {
+            background: #ffd700;
+            color: #1e3c72;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #ffed4e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid white;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #1e3c72;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stats Section */
+        .stats {
+            background: #f8f9fa;
+            padding: 60px 0;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1e3c72;
+            margin-bottom: 3rem;
+        }
+
+        .benefits-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .benefit-title {
+            font-size: 1.5rem;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        /* Calculator Section */
+        .calculator {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 80px 0;
+        }
+
+        .calculator-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .calculator-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            color: #333;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #1e3c72;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .result {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .savings-amount {
+            font-size: 2.5rem;
+            color: #28a745;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 4rem;
+            color: #667eea;
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            opacity: 0.3;
+        }
+
+        .testimonial-text {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            padding-left: 2rem;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #1e3c72;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .contact-form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #20ba5a;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Sole Mio</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+                <li><a href="#calculadora">Calculadora</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <a href="#calculadora" class="cta-button">Cotizar Ahora</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Tomemos de la Naturaleza su Perfección, sin Cambiarla</h1>
+            <p>SoleMio - Energía Sostenible. Instalaciones profesionales de paneles fotovoltaicos con 3 análisis completos para ofrecerte la mejor propuesta personalizada.</p>
+            <div class="hero-buttons">
+                <a href="#calculadora" class="btn-primary">Calcular Ahorro</a>
+                <a href="#contacto" class="btn-secondary">Consulta Gratuita</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">350+</div>
+                <div class="stat-label">Instalaciones en el País</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">25</div>
+                <div class="stat-label">Años de Garantía</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Años de Experiencia</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Análisis por Proyecto</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="beneficios">
+        <h2 class="section-title">¿Por Qué Elegir Energía Solar?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="benefit-icon">💰</div>
+                <h3 class="benefit-title">Ahorro Inmediato</h3>
+                <p>Reduce tu factura eléctrica desde el primer mes. El sistema se paga solo en 3-5 años y después generates ganancias por 20+ años más.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🌱</div>
+                <h3 class="benefit-title">Energía Limpia</h3>
+                <p>Contribuye al cuidado del medio ambiente usando energía 100% renovable. Reduce tu huella de carbono significativamente.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🏠</div>
+                <h3 class="benefit-title">Aumenta el Valor</h3>
+                <p>Los paneles solares incrementan el valor de tu propiedad hasta un 15%. Una inversión que se revaloriza con el tiempo.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">⚡</div>
+                <h3 class="benefit-title">Independencia Energética</h3>
+                <p>Libérate de los aumentos constantes en las tarifas eléctricas. Genera tu propia energía y controla tus costos.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🛡️</div>
+                <h3 class="benefit-title">Tecnología Confiable</h3>
+                <p>Paneles de última generación con 25 años de garantía. Tecnología probada y mantenimiento mínimo requerido.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">💳</div>
+                <h3 class="benefit-title">Financiación Flexible</h3>
+                <p>Opciones de financiamiento sin enganche. Paga mensualidades menores a tu factura eléctrica actual.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator" id="calculadora">
+        <div class="calculator-container">
+            <h2 class="section-title">Calcula tu Ahorro</h2>
+            <div class="calculator-form">
+                <div class="form-group">
+                    <label for="bill">Factura eléctrica mensual promedio ($ARS):</label>
+                    <input type="number" id="bill" placeholder="Ej: 25000" required>
+                </div>
+                <div class="form-group">
+                    <label for="consumption">Consumo mensual promedio (kWh):</label>
+                    <input type="number" id="consumption" placeholder="Ej: 400" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Provincia:</label>
+                    <select id="location" required>
+                        <option value="">Selecciona tu provincia</option>
+                        <option value="norte">Norte (Salta, Tucumán, Santiago del Estero)</option>
+                        <option value="centro">Centro (Buenos Aires, Córdoba, Santa Fe)</option>
+                        <option value="oeste">Oeste (Mendoza, San Juan, San Luis)</option>
+                        <option value="sur">Sur (Neuquén, Río Negro, Chubut)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="roof-type">Tipo de techo:</label>
+                    <select id="roof-type" required>
+                        <option value="">Selecciona el tipo</option>
+                        <option value="concrete">Concreto</option>
+                        <option value="metal">Lámina metálica</option>
+                        <option value="tile">Teja</option>
+                    </select>
+                </div>
+                <button type="button" class="calculate-btn" onclick="calculateSavings()">Calcular Ahorro</button>
+                
+                <div class="result" id="result">
+                    <div class="savings-amount" id="savings-amount"></div>
+                    <div id="savings-details"></div>
+                    <p style="margin-top: 1rem; color: #666;">* Cálculo estimado basado en radiación solar promedio y eficiencia del sistema</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonios">
+        <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <p class="testimonial-text">En 12 meses ya se había pagado sola la instalación. Mi factura pasó de $45.000 a solo $8.000 pesos mensuales. Excelente asesoramiento.</p>
+                <div class="testimonial-author">- María Elena González, Buenos Aires</div>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">Muy profesionales desde el análisis inicial hasta la puesta en marcha. Los paneles funcionan perfectamente y el ahorro es inmediato.</p>
+                <div class="testimonial-author">- Roberto Fernández, Mendoza</div>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">Me hicieron 3 propuestas diferentes y elegí la que mejor se adaptaba a mis necesidades. Súper recomendable para el agro.</p>
+                <div class="testimonial-author">- Juan Carlos Morales, Córdoba</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <h2 class="section-title">Contáctanos</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Información de Contacto</h3>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <div>
+                        <strong>Cobertura Nacional:</strong><br>
+                        Buenos Aires, Mendoza, Córdoba<br>
+                        y todo el territorio argentino
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span>📞</span>
+                    <div>
+                        <strong>Teléfono:</strong><br>
+                        +54 11 xxxx-xxxx
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span>📧</span>
+                    <div>
+                        <strong>Email:</strong><br>
+                        info@solemio.com.ar
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span>🕒</span>
+                    <div>
+                        <strong>Horarios:</strong><br>
+                        Lun - Vie: 8:00 AM - 6:00 PM<br>
+                        Sáb: 9:00 AM - 2:00 PM
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form" onsubmit="submitForm(event)">
+                <h3 style="margin-bottom: 1rem; color: #1e3c72;">Solicita tu Cotización Gratuita</h3>
+                <input type="text" name="name" placeholder="Nombre completo" required>
+                <input type="email" name="email" placeholder="Correo electrónico" required>
+                <input type="tel" name="phone" placeholder="Teléfono" required>
+                <input type="text" name="city" placeholder="Ciudad" required>
+                <textarea name="message" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                <button type="submit" class="submit-btn">Enviar Solicitud</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Sole Mio - Energía Sostenible. Todos los derechos reservados.</p>
+            <p>Instalaciones Profesionales | Cuadrilla Propia | Socios: Oriens, Nexo, BREM Energy</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5551234567?text=Hola,%20me%20interesa%20información%20sobre%20paneles%20solares" class="whatsapp-float" target="_blank" title="Contáctanos por WhatsApp">
+        📱
+    </a>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Calculator functionality
+        function calculateSavings() {
+            const bill = parseFloat(document.getElementById('bill').value);
+            const consumption = parseFloat(document.getElementById('consumption').value);
+            const location = document.getElementById('location').value;
+            const roofType = document.getElementById('roof-type').value;
+
+            if (!bill || !consumption || !location || !roofType) {
+                alert('Por favor, completa todos los campos');
+                return;
+            }
+
+            // Solar radiation factors by location (Argentina)
+            const solarFactors = {
+                'norte': 1.4,  // Excellent solar radiation (Salta, NOA)
+                'centro': 1.0, // Good solar radiation (Buenos Aires, center)
+                'oeste': 1.3,  // Excellent radiation (Mendoza, Cuyo)  
+                'sur': 0.9     // Lower but acceptable (Patagonia)
+            };
+
+            // Roof efficiency factors
+            const roofFactors = {
+                'concrete': 1.0,
+                'metal': 1.1,
+                'tile': 0.9
+            };
+
+            // Calculate system size needed (kW) - Argentina parameters
+            const systemSize = consumption * 1.3 / 120; // Adjusted for Argentina
+
+            // Calculate monthly generation (Argentina solar conditions)
+            const solarFactor = solarFactors[location] || 1.0;
+            const roofFactor = roofFactors[roofType] || 1.0;
+            const monthlyGeneration = systemSize * 120 * solarFactor * roofFactor;
+
+            // Calculate savings
+            const coveragePercentage = Math.min(monthlyGeneration / consumption * 100, 85);
+            const monthlySavings = bill * (coveragePercentage / 100);
+            const yearlySavings = monthlySavings * 12;
+            const twentyYearSavings = yearlySavings * 20;
+
+            // Show results
+            const resultDiv = document.getElementById('result');
+            const savingsAmountDiv = document.getElementById('savings-amount');
+            const savingsDetailsDiv = document.getElementById('savings-details');
+
+            savingsAmountDiv.textContent = `${monthlySavings.toLocaleString('es-AR', {minimumFractionDigits: 0, maximumFractionDigits: 0})} ARS/mes`;
+            
+            savingsDetailsDiv.innerHTML = `
+                <p><strong>Cobertura estimada:</strong> ${coveragePercentage.toFixed(0)}%</p>
+                <p><strong>Ahorro anual:</strong> ${yearlySavings.toLocaleString('es-AR')} ARS</p>
+                <p><strong>Ahorro en 20 años:</strong> ${twentyYearSavings.toLocaleString('es-AR')} ARS</p>
+                <p><strong>Tamaño de sistema recomendado:</strong> ${systemSize.toFixed(1)} kW</p>
+            `;
+
+            resultDiv.classList.add('show');
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Form submission
+        function submitForm(event) {
+            event.preventDefault();
+            
+            // Simulate form submission
+            const submitBtn = event.target.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Enviando...';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                alert('¡Gracias por tu interés! Nos pondremos en contacto contigo en
