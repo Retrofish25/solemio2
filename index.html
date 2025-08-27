@@ -98,10 +98,11 @@
             background-position: center;
             background-attachment: fixed;
             color: white;
-            padding: 120px 0 80px;
+            padding: 180px 0 140px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            min-height: 70vh;
         }
 
         .hero::before {
@@ -127,6 +128,20 @@
             padding: 0 2rem;
             position: relative;
             z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 25vh;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s both;
         }
 
         .hero h1 {
@@ -639,15 +654,13 @@
                 <li><a href="#testimonios">Testimonios</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
-            <a href="#calculadora" class="cta-button">Cotizar Ahora</a>
+            <a href="mailto:retrofishco@gmail.com?subject=Solicitud%20de%20Cotización%20-%20Sole%20Mio&body=Hola,%0D%0A%0D%0AMe%20interesa%20recibir%20una%20cotización%20para%20paneles%20solares.%0D%0A%0D%0AMis%20datos:%0D%0ANombre:%20%0D%0ATeléfono:%20%0D%0AUbicación:%20%0D%0AConsumo%20mensual%20aproximado%20(kWh):%20%0D%0AFactura%20mensual%20promedio:%20$%0D%0A%0D%0ASaludos" class="cta-button">Cotizar Ahora</a>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="inicio">
         <div class="hero-content">
-            <h1>Tomemos de la Naturaleza su Perfección, sin Cambiarla</h1>
-            <p>SoleMio - Energía Sostenible. Instalaciones profesionales de paneles fotovoltaicos con 3 análisis completos para ofrecerte la mejor propuesta personalizada.</p>
             <div class="hero-buttons">
                 <a href="#calculadora" class="btn-primary">Calcular Ahorro</a>
             </div>
@@ -845,7 +858,7 @@
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/5551234567?text=Hola,%20me%20interesa%20información%20sobre%20paneles%20solares" class="whatsapp-float" target="_blank" title="Contáctanos por WhatsApp">
+    <a href="https://wa.me/5491173724114?text=Hola,%20me%20interesa%20información%20sobre%20paneles%20solares" class="whatsapp-float" target="_blank" title="Contáctanos por WhatsApp">
         📱
     </a>
 
