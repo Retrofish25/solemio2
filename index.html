@@ -20,14 +20,14 @@
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(135deg, #1b4332 0%, #2d5016 100%);
             color: white;
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 15px rgba(27, 67, 50, 0.3);
         }
 
         nav {
@@ -42,7 +42,7 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
-            color: #c8d631;
+            color: #a8cc3b;
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -50,7 +50,7 @@
 
         .logo::before {
             content: "🌞";
-            background: linear-gradient(45deg, #c8d631, #d4e157);
+            background: linear-gradient(45deg, #a8cc3b, #c8d631);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -70,12 +70,12 @@
         }
 
         .nav-links a:hover {
-            color: #ffd700;
+            color: #a8cc3b;
         }
 
         .cta-button {
-            background: #c8d631;
-            color: #1e3c72;
+            background: #52734d;
+            color: white;
             padding: 0.8rem 1.5rem;
             border: none;
             border-radius: 25px;
@@ -86,13 +86,17 @@
         }
 
         .cta-button:hover {
-            background: #d4e157;
+            background: #40592d;
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(82, 115, 77, 0.4);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%23ffd89b"/><stop offset="100%" style="stop-color:%2319547b"/></linearGradient><linearGradient id="field" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%238bc34a"/><stop offset="100%" style="stop-color:%23689f38"/></linearGradient></defs><rect width="1200" height="400" fill="url(%23sky)"/><ellipse cx="200" cy="100" rx="80" ry="40" fill="rgba(255,255,255,0.1)"/><ellipse cx="800" cy="120" rx="100" ry="50" fill="rgba(255,255,255,0.08)"/><ellipse cx="1000" cy="80" rx="60" ry="30" fill="rgba(255,255,255,0.12)"/><rect width="1200" height="200" y="400" fill="url(%23field)"/><path d="M0 450 Q300 420 600 440 T1200 450" fill="%23689f38"/><path d="M0 480 Q400 460 800 470 T1200 480" fill="%23558b2f"/><circle cx="100" cy="300" r="30" fill="%234e342e"/><rect x="95" y="280" width="10" height="40" fill="%233e2723"/><ellipse cx="100" cy="270" rx="25" ry="15" fill="%232e7d32"/><circle cx="900" cy="320" r="35" fill="%234e342e"/><rect x="895" y="295" width="10" height="45" fill="%233e2723"/><ellipse cx="900" cy="285" rx="30" ry="18" fill="%232e7d32"/><circle cx="300" cy="310" r="25" fill="%234e342e"/><rect x="295" y="290" width="10" height="35" fill="%233e2723"/><ellipse cx="300" cy="280" rx="20" ry="12" fill="%232e7d32"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: white;
             padding: 120px 0 80px;
             text-align: center;
@@ -126,9 +130,10 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
             animation: fadeInUp 1s ease;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
         }
 
         .hero p {
@@ -147,10 +152,10 @@
         }
 
         .btn-primary {
-            background: #ffd700;
-            color: #1e3c72;
+            background: transparent;
+            color: white;
             padding: 1rem 2rem;
-            border: none;
+            border: 2px solid white;
             border-radius: 30px;
             font-size: 1.1rem;
             font-weight: bold;
@@ -161,9 +166,10 @@
         }
 
         .btn-primary:hover {
-            background: #ffed4e;
+            background: white;
+            color: #1b4332;
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
         }
 
         .btn-secondary {
@@ -255,37 +261,110 @@
             padding: 0 2rem;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
+            gap: 2rem;
         }
 
         .benefit-item {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 15px;
-            transition: transform 0.3s;
+            position: relative;
+            height: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .benefit-item:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .benefit-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.8) 0%, rgba(200, 214, 49, 0.6) 100%);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover::before {
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.6) 0%, rgba(200, 214, 49, 0.4) 100%);
+        }
+
+        .benefit-content {
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            color: white;
         }
 
         .benefit-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 1rem;
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: white;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover .benefit-icon {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
         }
 
         .benefit-title {
-            font-size: 1.5rem;
-            color: #1e3c72;
+            font-size: 1.4rem;
+            font-weight: bold;
             margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .benefit-text {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            opacity: 0.95;
+        }
+
+        /* Background images for each benefit */
+        .benefit-item:nth-child(1) {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%234CAF50"/><stop offset="100%" style="stop-color:%232E7D32"/></linearGradient></defs><rect width="400" height="300" fill="url(%23g1)"/><circle cx="100" cy="80" r="40" fill="rgba(255,255,255,0.1)"/><circle cx="300" cy="200" r="60" fill="rgba(255,255,255,0.1)"/><path d="M50 150 Q200 100 350 180" stroke="rgba(255,255,255,0.2)" stroke-width="3" fill="none"/></svg>');
+        }
+
+        .benefit-item:nth-child(2) {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%2366BB6A"/><stop offset="100%" style="stop-color:%231B5E20"/></linearGradient></defs><rect width="400" height="300" fill="url(%23g2)"/><circle cx="150" cy="100" r="30" fill="rgba(255,255,255,0.1)"/><circle cx="250" cy="200" r="45" fill="rgba(255,255,255,0.1)"/><path d="M0 250 Q200 200 400 250" stroke="rgba(255,255,255,0.2)" stroke-width="2" fill="none"/></svg>');
+        }
+
+        .benefit-item:nth-child(3) {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23FF9800"/><stop offset="100%" style="stop-color:%23E65100"/></linearGradient></defs><rect width="400" height="300" fill="url(%23g3)"/><rect x="80" y="60" width="60" height="40" rx="5" fill="rgba(255,255,255,0.1)"/><rect x="200" y="150" width="80" height="50" rx="5" fill="rgba(255,255,255,0.1)"/><circle cx="320" cy="80" r="25" fill="rgba(255,255,255,0.1)"/></svg>');
+        }
+
+        .benefit-item:nth-child(4) {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23FFC107"/><stop offset="100%" style="stop-color:%23FF8F00"/></linearGradient></defs><rect width="400" height="300" fill="url(%23g4)"/><polygon points="200,50 220,90 180,90" fill="rgba(255,255,255,0.1)"/><circle cx="120" cy="180" r="35" fill="rgba(255,255,255,0.1)"/><rect x="280" y="160" width="40" height="80" rx="3" fill="rgba(255,255,255,0.1)"/></svg>');
+        }
+
+        .benefit-item:nth-child(5) {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%233F51B5"/><stop offset="100%" style="stop-color:%231A237E"/></linearGradient></defs><rect width="400" height="300" fill="url(%23g5)"/><rect x="100" y="80" width="200" height="6" rx="3" fill="rgba(255,255,255,0.1)"/><rect x="120" y="140" width="160" height="6" rx="3" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="200" r="20" fill="rgba(255,255,255,0.1)"/><circle cx="320" cy="180" r="25" fill="rgba(255,255,255,0.1)"/></svg>');
+        }
+
+        .benefit-item:nth-child(6) {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="g6" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23607D8B"/><stop offset="100%" style="stop-color:%23263238"/></linearGradient></defs><rect width="400" height="300" fill="url(%23g6)"/><rect x="150" y="100" width="100" height="60" rx="8" fill="rgba(255,255,255,0.1)"/><circle cx="100" cy="80" r="15" fill="rgba(255,255,255,0.1)"/><circle cx="300" cy="220" r="20" fill="rgba(255,255,255,0.1)"/><path d="M50 200 L350 120" stroke="rgba(255,255,255,0.2)" stroke-width="2"/></svg>');
         }
 
         /* Calculator Section */
@@ -571,7 +650,6 @@
             <p>SoleMio - Energía Sostenible. Instalaciones profesionales de paneles fotovoltaicos con 3 análisis completos para ofrecerte la mejor propuesta personalizada.</p>
             <div class="hero-buttons">
                 <a href="#calculadora" class="btn-primary">Calcular Ahorro</a>
-                <a href="#contacto" class="btn-secondary">Consulta Gratuita</a>
             </div>
         </div>
     </section>
@@ -603,34 +681,46 @@
         <h2 class="section-title">¿Por Qué Elegir Energía Solar?</h2>
         <div class="benefits-grid">
             <div class="benefit-item">
-                <div class="benefit-icon">💰</div>
-                <h3 class="benefit-title">Ahorro Inmediato</h3>
-                <p>Reduce tu factura eléctrica desde el primer mes. El sistema se paga solo en 3-5 años y después generates ganancias por 20+ años más.</p>
+                <div class="benefit-content">
+                    <div class="benefit-icon">💰</div>
+                    <h3 class="benefit-title">Ahorro Inmediato</h3>
+                    <p class="benefit-text">Reduce tu factura eléctrica desde el primer mes. El sistema se paga solo en 3-5 años y después generates ganancias por 20+ años más.</p>
+                </div>
             </div>
             <div class="benefit-item">
-                <div class="benefit-icon">🌱</div>
-                <h3 class="benefit-title">Energía Limpia</h3>
-                <p>Contribuye al cuidado del medio ambiente usando energía 100% renovable. Reduce tu huella de carbono significativamente.</p>
+                <div class="benefit-content">
+                    <div class="benefit-icon">🌱</div>
+                    <h3 class="benefit-title">Energía Limpia</h3>
+                    <p class="benefit-text">Contribuye al cuidado del medio ambiente usando energía 100% renovable. Reduce tu huella de carbono significativamente.</p>
+                </div>
             </div>
             <div class="benefit-item">
-                <div class="benefit-icon">🏠</div>
-                <h3 class="benefit-title">Aumenta el Valor</h3>
-                <p>Los paneles solares incrementan el valor de tu propiedad hasta un 15%. Una inversión que se revaloriza con el tiempo.</p>
+                <div class="benefit-content">
+                    <div class="benefit-icon">🏠</div>
+                    <h3 class="benefit-title">Aumenta el Valor</h3>
+                    <p class="benefit-text">Los paneles solares incrementan el valor de tu propiedad hasta un 15%. Una inversión que se revaloriza con el tiempo.</p>
+                </div>
             </div>
             <div class="benefit-item">
-                <div class="benefit-icon">⚡</div>
-                <h3 class="benefit-title">Independencia Energética</h3>
-                <p>Libérate de los aumentos constantes en las tarifas eléctricas. Genera tu propia energía y controla tus costos.</p>
+                <div class="benefit-content">
+                    <div class="benefit-icon">⚡</div>
+                    <h3 class="benefit-title">Independencia Energética</h3>
+                    <p class="benefit-text">Libérate de los aumentos constantes en las tarifas eléctricas. Genera tu propia energía y controla tus costos.</p>
+                </div>
             </div>
             <div class="benefit-item">
-                <div class="benefit-icon">🛡️</div>
-                <h3 class="benefit-title">Tecnología Confiable</h3>
-                <p>Paneles de última generación con 25 años de garantía. Tecnología probada y mantenimiento mínimo requerido.</p>
+                <div class="benefit-content">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3 class="benefit-title">Tecnología Confiable</h3>
+                    <p class="benefit-text">Paneles de última generación con 25 años de garantía. Tecnología probada y mantenimiento mínimo requerido.</p>
+                </div>
             </div>
             <div class="benefit-item">
-                <div class="benefit-icon">💳</div>
-                <h3 class="benefit-title">Financiación Flexible</h3>
-                <p>Opciones de financiamiento sin enganche. Paga mensualidades menores a tu factura eléctrica actual.</p>
+                <div class="benefit-content">
+                    <div class="benefit-icon">💳</div>
+                    <h3 class="benefit-title">Financiación Flexible</h3>
+                    <p class="benefit-text">Opciones de financiamiento sin enganche. Paga mensualidades menores a tu factura eléctrica actual.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -769,6 +859,13 @@
                     target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
+                    });
+                    
+                    // Alternative smoother approach using scrollTo
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - 80;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
                     });
                 }
             });
