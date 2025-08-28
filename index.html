@@ -214,31 +214,9 @@
 
         /* Stats Section */
         .stats {
-            background: #000;
+            background: white;
             padding: 100px 0;
             position: relative;
-            overflow: hidden;
-        }
-
-        .stats-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-        }
-
-        .stats::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7));
-            z-index: 2;
         }
 
         .stats-container {
@@ -251,32 +229,33 @@
             gap: 2rem;
             text-align: center;
             position: relative;
-            z-index: 3;
         }
 
         .stat-item {
-            background: transparent;
-            padding: 0;
-            border-radius: 0;
-            box-shadow: none;
-            transition: none;
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
             flex: 1;
+            border: 1px solid rgba(0,0,0,0.06);
         }
 
         .stat-item:hover {
-            transform: none;
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.15);
         }
 
         .stat-number {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             font-weight: 300;
-            color: white;
+            color: #171a20;
             margin-bottom: 0.5rem;
             letter-spacing: -0.02em;
         }
 
         .stat-label {
-            color: rgba(255, 255, 255, 0.9);
+            color: #5c5e62;
             font-size: 0.95rem;
             font-weight: 400;
             line-height: 1.4;
@@ -680,7 +659,7 @@
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#beneficios">Beneficios</a></li>
-                <li><a href="#calculadora">Calculadora</a></li>
+                <li><a href="#calculadora">Cotización</a></li>
                 <li><a href="#testimonios">Testimonios</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
@@ -691,25 +670,20 @@
     <!-- Hero Section -->
     <section class="hero" id="inicio">
         <video class="hero-video" autoplay muted loop playsinline>
-            <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
+            <source src="https://res.cloudinary.com/duxhjhuma/video/upload/v1756351443/857091-hd_1280_720_25fps_ezxhkx.mp4" type="video/mp4">
             <!-- Fallback para navegadores que no soporten video -->
             <div style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('https://i.imgur.com/A9Jg4X5.jpeg'); background-size: cover; background-position: center; width: 100%; height: 100%; position: absolute; top: 0; left: 0;"></div>
         </video>
         <div class="hero-content">
-            <h1 class="hero-title">Energía Solar que Genera Futuro</h1>
-            <p class="hero-subtitle">Tomemos de la naturaleza su perfección, sin cambiarla. Instalaciones profesionales con tecnología de vanguardia.</p>
+            <h1 class="hero-title">SoleMio</h1>
             <div class="hero-buttons">
                 <a href="#calculadora" class="btn-primary">Calcular Ahorro</a>
-                <a href="#contacto" class="btn-secondary">Más Información</a>
             </div>
         </div>
     </section>
 
     <!-- Stats Section -->
     <section class="stats">
-        <video class="stats-video" autoplay muted loop playsinline>
-            <source src="https://res.cloudinary.com/duxhjhuma/video/upload/v1756351443/857091-hd_1280_720_25fps_ezxhkx.mp4" type="video/mp4">
-        </video>
         <div class="stats-container">
             <div class="stat-item">
                 <div class="stat-number">350+</div>
@@ -884,8 +858,8 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <p>&copy; 2024 Sole Mio - Energía Sostenible. Todos los derechos reservados.</p>
-            <p>Instalaciones Profesionales | Cuadrilla Propia | Socios: Oriens, Nexo, BREM Energy</p>
+            <p>&copy; 2024 SoleMio - Energía Sostenible. Todos los derechos reservados.</p>
+            <p>Instalaciones Profesionales | Cuadrilla Propia</p>
         </div>
     </footer>
 
