@@ -93,7 +93,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('data:image/svg+xml,<svg xmlns="https://i.imgur.com/A9Jg4X5.jpeg" viewBox="0 0 1200 600"><defs><linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%23ffd89b"/><stop offset="100%" style="stop-color:%2319547b"/></linearGradient><linearGradient id="field" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%238bc34a"/><stop offset="100%" style="stop-color:%23689f38"/></linearGradient></defs><rect width="1200" height="400" fill="url(%23sky)"/><ellipse cx="200" cy="100" rx="80" ry="40" fill="rgba(255,255,255,0.1)"/><ellipse cx="800" cy="120" rx="100" ry="50" fill="rgba(255,255,255,0.08)"/><ellipse cx="1000" cy="80" rx="60" ry="30" fill="rgba(255,255,255,0.12)"/><rect width="1200" height="200" y="400" fill="url(%23field)"/><path d="M0 450 Q300 420 600 440 T1200 450" fill="%23689f38"/><path d="M0 480 Q400 460 800 470 T1200 480" fill="%23558b2f"/><circle cx="100" cy="300" r="30" fill="%234e342e"/><rect x="95" y="280" width="10" height="40" fill="%233e2723"/><ellipse cx="100" cy="270" rx="25" ry="15" fill="%232e7d32"/><circle cx="900" cy="320" r="35" fill="%234e342e"/><rect x="895" y="295" width="10" height="45" fill="%233e2723"/><ellipse cx="900" cy="285" rx="30" ry="18" fill="%232e7d32"/><circle cx="300" cy="310" r="25" fill="%234e342e"/><rect x="295" y="290" width="10" height="35" fill="%233e2723"/><ellipse cx="300" cy="280" rx="20" ry="12" fill="%232e7d32"/></svg>');
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('https://i.imgur.com/A9Jg4X5.jpeg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -112,7 +112,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="https://i.imgur.com/A9Jg4X5.jpeg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="25" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="25" cy="75" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="25" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="25" cy="75" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
             animation: float 20s infinite linear;
         }
 
@@ -355,6 +355,8 @@
             line-height: 1.5;
             text-shadow: 0 1px 2px rgba(0,0,0,0.3);
             opacity: 0.95;
+            text-align: justify;
+            text-align-last: center;
         }
 
         /* Background images for each benefit */
@@ -387,6 +389,13 @@
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
             padding: 80px 0;
+        }
+
+        .calculator .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 3rem;
         }
 
         .calculator-container {
@@ -650,7 +659,7 @@
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#beneficios">Beneficios</a></li>
-                <li><a href="#calculadora">Cotizar</a></li>
+                <li><a href="#calculadora">Calculadora</a></li>
                 <li><a href="#testimonios">Testimonios</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
@@ -675,16 +684,16 @@
                 <div class="stat-label">Instalaciones en el País</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">25</div>
-                <div class="stat-label">Años de Garantía</div>
+                <div class="stat-number">1,200</div>
+                <div class="stat-label">Toneladas de CO₂ Evitadas</div>
             </div>
             <div class="stat-item">
                 <div class="stat-number">5</div>
                 <div class="stat-label">Años de Experiencia</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">3</div>
-                <div class="stat-label">Análisis por Proyecto</div>
+                <div class="stat-number">90%</div>
+                <div class="stat-label">de Consumo Ahorrado en 1 Año</div>
             </div>
         </div>
     </section>
@@ -810,15 +819,14 @@
                     <span>📍</span>
                     <div>
                         <strong>Cobertura Nacional:</strong><br>
-                        Buenos Aires, Mendoza, Córdoba<br>
-                        y todo el territorio argentino
+                        Trabajamos en todo el país
                     </div>
                 </div>
                 <div class="contact-item">
                     <span>📞</span>
                     <div>
                         <strong>Teléfono:</strong><br>
-                        +54 11 xxxx-xxxx
+                        +54 9 11 7372-4114
                     </div>
                 </div>
                 <div class="contact-item">
@@ -826,14 +834,6 @@
                     <div>
                         <strong>Email:</strong><br>
                         info@solemio.com.ar
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <span>🕒</span>
-                    <div>
-                        <strong>Horarios:</strong><br>
-                        Lun - Vie: 8:00 AM - 6:00 PM<br>
-                        Sáb: 9:00 AM - 2:00 PM
                     </div>
                 </div>
             </div>
