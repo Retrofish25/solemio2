@@ -574,13 +574,21 @@
 
         /* Contact Section */
         .contact {
-            background: #1b4332;
+            background: linear-gradient(135deg, #1b4332 0%, #2d5016 100%);
             padding: 120px 0;
             color: white;
+            position: relative;
         }
 
-        .contact .section-title {
-            color: white;
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="contactBg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:rgba(27,67,50,0.95)"/><stop offset="100%" style="stop-color:rgba(45,80,22,0.95)"/></linearGradient></defs><rect width="1200" height="800" fill="url(%23contactBg)"/><circle cx="200" cy="150" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="800" cy="300" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="1000" cy="200" r="4" fill="rgba(255,255,255,0.1)"/><circle cx="400" cy="600" r="3" fill="rgba(255,255,255,0.1)"/></svg>');
+            z-index: 1;
         }
 
         .contact-container {
@@ -590,6 +598,14 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 6rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact .section-title {
+            color: white;
+            margin-bottom: 3rem;
+            text-align: left;
         }
 
         .contact-info h3 {
@@ -602,12 +618,25 @@
         .contact-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 2rem;
-            gap: 1rem;
+            margin-bottom: 2.5rem;
+            gap: 1.2rem;
         }
 
         .contact-item span {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            margin-top: 0.2rem;
+            min-width: 1.5rem;
+        }
+
+        .contact-item div {
+            flex: 1;
+        }
+
+        .contact-item strong {
+            font-weight: 500;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 0.3rem;
         }
 
         .contact-form {
@@ -616,6 +645,7 @@
             padding: 3rem;
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.1);
         }
 
         .contact-form h3 {
@@ -636,11 +666,20 @@
             background: rgba(255, 255, 255, 0.1);
             color: white;
             backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
         }
 
         .contact-form input::placeholder,
         .contact-form textarea::placeholder {
             color: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
         }
 
         .contact-form textarea {
