@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sole Mio - Paneles Solares | Ahorra hasta 90% en tu factura eléctrica</title>
-    <meta name="description" content="Instala paneles solares y reduce tu factura eléctrica hasta 90%. Consulta gratuita y financiación disponible. ¡Cotiza ahora!">
+    <title>SoleMio - Energía Solar | El futuro de la energía sostenible</title>
+    <meta name="description" content="Instalaciones de paneles solares profesionales. Ahorra hasta 90% en tu factura eléctrica con tecnología de vanguardia.">
     <style>
         * {
             margin: 0;
@@ -16,31 +16,35 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #171a20;
-            margin: 0;
-            padding: 0;
+            background: #ffffff;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         /* Header */
         header {
+            position: fixed;
+            top: 0;
+            width: 100%;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
-            color: #171a20;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
             transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 32px rgba(0,0,0,0.1);
         }
 
         nav {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            padding: 1rem 2rem;
         }
 
         .logo {
@@ -48,6 +52,7 @@
             font-weight: 500;
             color: #171a20;
             letter-spacing: -0.02em;
+            cursor: pointer;
         }
 
         .nav-links {
@@ -62,10 +67,26 @@
             font-weight: 400;
             font-size: 0.95rem;
             transition: color 0.2s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1b4332;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .nav-links a:hover {
-            color: #52734d;
+            color: #1b4332;
         }
 
         .cta-button {
@@ -73,7 +94,7 @@
             color: white;
             padding: 0.75rem 1.5rem;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             font-weight: 500;
             font-size: 0.9rem;
             cursor: pointer;
@@ -86,119 +107,114 @@
             transform: translateY(-1px);
         }
 
-        /* Hero Section */
+        /* Hero Section - Pebble Style */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('https://i.imgur.com/A9Jg4X5.jpeg');
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, rgba(27, 67, 50, 0.9) 0%, rgba(45, 80, 22, 0.8) 100%), url('https://i.imgur.com/A9Jg4X5.jpeg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             color: white;
-            padding: 180px 0 140px;
-            text-align: center;
-            position: relative;
             overflow: hidden;
-            min-height: 70vh;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="25" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="25" cy="75" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
-            animation: float 20s infinite linear;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
         }
 
         .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 1400px;
+            width: 100%;
+            text-align: center;
             padding: 0 2rem;
             position: relative;
-            z-index: 1;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding-top: 25vh;
+            z-index: 2;
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
             margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            font-weight: 300;
+            margin-bottom: 3rem;
             opacity: 0.9;
-            animation: fadeInUp 1s ease 0.2s both;
+            line-height: 1.4;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.7s forwards;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.4s both;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.9s forwards;
         }
 
         .btn-primary {
-            background: transparent;
-            color: white;
-            padding: 1rem 2rem;
-            border: 2px solid white;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
+            background: white;
+            color: #171a20;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
         }
 
         .btn-primary:hover {
-            background: white;
-            color: #1b4332;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
         }
 
         .btn-secondary {
             background: transparent;
             color: white;
-            padding: 1rem 2rem;
-            border: 2px solid white;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
+            padding: 1.2rem 3rem;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
         }
 
         .btn-secondary:hover {
-            background: white;
-            color: #1e3c72;
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+            transform: translateY(-2px);
         }
 
         @keyframes fadeInUp {
@@ -212,56 +228,150 @@
             }
         }
 
-        /* Stats Section */
+        /* Stats Section - Floating Cards */
         .stats {
-            background: white;
-            padding: 100px 0;
+            background: #f8f9fa;
+            padding: 0;
             position: relative;
+            transform: translateY(-100px);
+            z-index: 10;
         }
 
         .stats-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            text-align: center;
-            position: relative;
         }
 
         .stat-item {
             background: white;
-            padding: 2.5rem 2rem;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            flex: 1;
-            border: 1px solid rgba(0,0,0,0.06);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.05);
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideInUp 1s ease forwards;
         }
 
+        .stat-item:nth-child(1) { animation-delay: 0.1s; }
+        .stat-item:nth-child(2) { animation-delay: 0.2s; }
+        .stat-item:nth-child(3) { animation-delay: 0.3s; }
+        .stat-item:nth-child(4) { animation-delay: 0.4s; }
+
         .stat-item:hover {
-            transform: translateY(-8px) scale(1.02);
+            transform: translateY(-12px);
             box-shadow: 0 16px 48px rgba(0,0,0,0.15);
         }
 
         .stat-number {
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             font-weight: 300;
-            color: #171a20;
+            color: #1b4332;
             margin-bottom: 0.5rem;
             letter-spacing: -0.02em;
         }
 
         .stat-label {
             color: #5c5e62;
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 400;
             line-height: 1.4;
         }
 
-        /* Benefits Section */
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Feature Sections - Pebble Style */
+        .feature-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .feature-section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .feature-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .feature-text {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 1s ease;
+        }
+
+        .feature-text.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .feature-badge {
+            display: inline-block;
+            background: #1b4332;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            color: #171a20;
+        }
+
+        .feature-description {
+            font-size: 1.25rem;
+            font-weight: 300;
+            line-height: 1.6;
+            color: #5c5e62;
+            margin-bottom: 2rem;
+        }
+
+        .feature-visual {
+            position: relative;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 1s ease;
+        }
+
+        .feature-visual.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .feature-visual img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+        }
+
+        /* Benefits Grid */
         .benefits {
             padding: 120px 0;
             background: white;
@@ -269,7 +379,7 @@
 
         .section-title {
             text-align: center;
-            font-size: 2.8rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 300;
             color: #171a20;
             margin-bottom: 4rem;
@@ -287,20 +397,24 @@
 
         .benefit-item {
             position: relative;
-            height: 400px;
-            border-radius: 8px;
+            height: 500px;
+            border-radius: 16px;
             overflow: hidden;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideInUp 1s ease forwards;
         }
 
-        .benefit-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 32px 64px rgba(0,0,0,0.2);
-        }
+        .benefit-item:nth-child(1) { animation-delay: 0.1s; }
+        .benefit-item:nth-child(2) { animation-delay: 0.2s; }
+        .benefit-item:nth-child(3) { animation-delay: 0.3s; }
+        .benefit-item:nth-child(4) { animation-delay: 0.4s; }
+        .benefit-item:nth-child(5) { animation-delay: 0.5s; }
+        .benefit-item:nth-child(6) { animation-delay: 0.6s; }
 
         .benefit-item::before {
             content: '';
@@ -310,7 +424,12 @@
             right: 0;
             bottom: 0;
             background: linear-gradient(135deg, rgba(23, 26, 32, 0.7) 0%, rgba(23, 26, 32, 0.4) 100%);
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
 
         .benefit-item:hover::before {
@@ -328,247 +447,200 @@
             color: white;
         }
 
-        .benefit-icon {
-            display: none;
-        }
-
         .benefit-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 300;
             margin-bottom: 1rem;
             letter-spacing: -0.01em;
         }
 
         .benefit-text {
-            font-size: 1rem;
+            font-size: 1.1rem;
             line-height: 1.5;
-            opacity: 0.9;
+            opacity: 0.95;
             font-weight: 300;
-        }
-
-        /* Background images for each benefit - Real images */
-        .benefit-item:nth-child(1) {
-            background-image: url('https://i.imgur.com/1h0BQtn.png');
-        }
-
-        .benefit-item:nth-child(2) {
-            background-image: url('https://i.imgur.com/37mHMxY.jpeg');
-        }
-
-        .benefit-item:nth-child(3) {
-            background-image: url('https://i.imgur.com/GocSFc4.png');
-        }
-
-        .benefit-item:nth-child(4) {
-            background-image: url('https://i.imgur.com/s826yfe.png');
-        }
-
-        .benefit-item:nth-child(5) {
-            background-image: url('https://i.imgur.com/Fs1ASak.jpg');
-        }
-
-        .benefit-item:nth-child(6) {
-            background-image: url('https://i.imgur.com/jOiXFrp.png');
-        }<rect x="200" y="150" width="80" height="50" rx="5" fill="rgba(255,255,255,0.1)"/><circle cx="320" cy="80" r="25" fill="rgba(255,255,255,0.1)"/></svg>');
-        }
-
-        .benefit-item:nth-child(4) {
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23FFC107"/><stop offset="100%" style="stop-color:%23FF8F00"/></linearGradient></defs><rect width="400" height="300" fill="url(%23g4)"/><polygon points="200,50 220,90 180,90" fill="rgba(255,255,255,0.1)"/><circle cx="120" cy="180" r="35" fill="rgba(255,255,255,0.1)"/><rect x="280" y="160" width="40" height="80" rx="3" fill="rgba(255,255,255,0.1)"/></svg>');
-        }
-
-        .benefit-item:nth-child(5) {
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%233F51B5"/><stop offset="100%" style="stop-color:%231A237E"/></linearGradient></defs><rect width="400" height="300" fill="url(%23g5)"/><rect x="100" y="80" width="200" height="6" rx="3" fill="rgba(255,255,255,0.1)"/><rect x="120" y="140" width="160" height="6" rx="3" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="200" r="20" fill="rgba(255,255,255,0.1)"/><circle cx="320" cy="180" r="25" fill="rgba(255,255,255,0.1)"/></svg>');
-        }
-
-        .benefit-item:nth-child(6) {
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="g6" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23607D8B"/><stop offset="100%" style="stop-color:%23263238"/></linearGradient></defs><rect width="400" height="300" fill="url(%23g6)"/><rect x="150" y="100" width="100" height="60" rx="8" fill="rgba(255,255,255,0.1)"/><circle cx="100" cy="80" r="15" fill="rgba(255,255,255,0.1)"/><circle cx="300" cy="220" r="20" fill="rgba(255,255,255,0.1)"/><path d="M50 200 L350 120" stroke="rgba(255,255,255,0.2)" stroke-width="2"/></svg>');
         }
 
         /* Calculator Section */
         .calculator {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://i.imgur.com/eCXgxaT.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 120px 0;
             color: white;
-            padding: 80px 0;
+        }
+
+        .calculator-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
         }
 
         .calculator .section-title {
-            text-align: center;
-            font-size: 2.5rem;
             color: white;
             margin-bottom: 3rem;
         }
 
-        .calculator-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .calculator-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 4rem;
+            border-radius: 20px;
+            color: #171a20;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.2);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .calculator-form {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            color: #333;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            text-align: left;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #1e3c72;
+            font-weight: 500;
+            color: #171a20;
+            font-size: 0.95rem;
         }
 
         .form-group input,
         .form-group select {
             width: 100%;
-            padding: 1rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
+            padding: 1.2rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
             font-size: 1rem;
-            transition: border-color 0.3s;
+            transition: all 0.2s ease;
+            background: white;
         }
 
         .form-group input:focus,
         .form-group select:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #1b4332;
+            box-shadow: 0 0 0 3px rgba(27, 67, 50, 0.1);
         }
 
         .calculate-btn {
             width: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #1b4332;
             color: white;
-            padding: 1rem;
+            padding: 1.2rem;
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             font-size: 1.1rem;
-            font-weight: bold;
+            font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
         }
 
         .calculate-btn:hover {
+            background: #2d5016;
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 8px 24px rgba(27, 67, 50, 0.3);
         }
 
         .result {
-            margin-top: 2rem;
+            margin-top: 3rem;
             padding: 2rem;
             background: #f8f9fa;
-            border-radius: 10px;
+            border-radius: 12px;
             text-align: center;
             display: none;
+            border: 1px solid #e0e0e0;
         }
 
         .result.show {
             display: block;
+            animation: fadeInUp 0.5s ease;
         }
 
         .savings-amount {
-            font-size: 2.5rem;
-            color: #28a745;
-            font-weight: bold;
+            font-size: 3rem;
+            color: #1b4332;
+            font-weight: 300;
             margin-bottom: 1rem;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            background: #2d5016;
-            padding: 80px 0;
-            color: white;
-        }
-
-        .testimonials .section-title {
-            color: white;
-        }
-
-        .testimonials-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            position: relative;
-        }
-
-        .testimonial::before {
-            content: '"';
-            font-size: 4rem;
-            color: #667eea;
-            position: absolute;
-            top: 1rem;
-            left: 1.5rem;
-            opacity: 0.3;
-        }
-
-        .testimonial-text {
-            margin-bottom: 1.5rem;
-            font-style: italic;
-            padding-left: 2rem;
-        }
-
-        .testimonial-author {
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.9);
         }
 
         /* Contact Section */
         .contact {
-            background: white;
-            padding: 80px 0;
+            background: #1b4332;
+            padding: 120px 0;
+            color: white;
+        }
+
+        .contact .section-title {
+            color: white;
         }
 
         .contact-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 6rem;
         }
 
         .contact-info h3 {
-            color: #1e3c72;
-            margin-bottom: 1rem;
+            color: white;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            font-weight: 300;
         }
 
         .contact-item {
             display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
+            align-items: flex-start;
+            margin-bottom: 2rem;
             gap: 1rem;
         }
 
+        .contact-item span {
+            font-size: 1.2rem;
+        }
+
         .contact-form {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-form h3 {
+            color: white;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            font-weight: 300;
         }
 
         .contact-form input,
         .contact-form textarea {
             width: 100%;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
             font-size: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .contact-form textarea {
@@ -578,72 +650,49 @@
 
         .submit-btn {
             width: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem;
+            background: white;
+            color: #1b4332;
+            padding: 1.2rem;
             border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: bold;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
 
         .submit-btn:hover {
+            background: rgba(255, 255, 255, 0.95);
             transform: translateY(-2px);
         }
 
         /* Footer */
         footer {
-            background: #1b4332;
+            background: #171a20;
             color: white;
             text-align: center;
-            padding: 3rem 0;
+            padding: 4rem 0;
         }
 
         .footer-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Floating WhatsApp Button */
+        /* WhatsApp Float */
         .whatsapp-float {
             position: fixed;
             width: 60px;
             height: 60px;
-            bottom: 40px;
-            right: 40px;
+            bottom: 30px;
+            right: 30px;
             background-color: #25d366;
             color: white;
             border-radius: 50px;
             text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
+            font-size: 28px;
+            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.3);
             z-index: 100;
             transition: all 0.3s;
             display: flex;
@@ -655,31 +704,82 @@
         .whatsapp-float:hover {
             background-color: #20ba5a;
             transform: scale(1.1);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Background images */
+        .benefit-item:nth-child(1) { background-image: url('https://i.imgur.com/1h0BQtn.png'); }
+        .benefit-item:nth-child(2) { background-image: url('https://i.imgur.com/37mHMxY.jpeg'); }
+        .benefit-item:nth-child(3) { background-image: url('https://i.imgur.com/GocSFc4.png'); }
+        .benefit-item:nth-child(4) { background-image: url('https://i.imgur.com/s826yfe.png'); }
+        .benefit-item:nth-child(5) { background-image: url('https://i.imgur.com/Fs1ASak.jpg'); }
+        .benefit-item:nth-child(6) { background-image: url('https://i.imgur.com/jOiXFrp.png'); }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .feature-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .stat-item {
+                padding: 2rem 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
+    <header id="header">
         <nav>
             <div class="logo">SoleMio</div>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#beneficios">Beneficios</a></li>
                 <li><a href="#calculadora">Cotización</a></li>
-                <li><a href="#testimonios">Testimonios</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
-            <a href="mailto:retrofishco@gmail.com?subject=Solicitud%20de%20Cotización%20-%20Sole%20Mio&body=Hola,%0D%0A%0D%0AMe%20interesa%20recibir%20una%20cotización%20para%20paneles%20solares.%0D%0A%0D%0AMis%20datos:%0D%0ANombre:%20%0D%0ATeléfono:%20%0D%0AUbicación:%20%0D%0AConsumo%20mensual%20aproximado%20(kWh):%20%0D%0AFactura%20mensual%20promedio:%20$%0D%0A%0D%0ASaludos" class="cta-button">Cotizar Ahora</a>
+            <a href="mailto:retrofishco@gmail.com?subject=Solicitud%20de%20Cotización%20-%20SoleMio&body=Hola,%0D%0A%0D%0AMe%20interesa%20recibir%20una%20cotización%20para%20paneles%20solares." class="cta-button">Cotizar Ahora</a>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="inicio">
         <div class="hero-content">
-            <h1 class="hero-title">SoleMio</h1>
+            <div class="hero-badge">🌱 Energía Sostenible</div>
+            <h1 class="hero-title">Es eléctrico. Es inteligente.<br>Y controlas tu futuro<br>energético.</h1>
+            <p class="hero-subtitle">Tomemos de la naturaleza su perfección, sin cambiarla. Instalaciones profesionales que transforman tu hogar en una fuente de energía limpia.</p>
             <div class="hero-buttons">
                 <a href="#calculadora" class="btn-primary">Calcular Ahorro</a>
+                <a href="#beneficios" class="btn-secondary">Conocer Más</a>
             </div>
         </div>
     </section>
@@ -701,7 +801,21 @@
             </div>
             <div class="stat-item">
                 <div class="stat-number">90%</div>
-                <div class="stat-label">de Consumo Ahorrado en 1 Año</div>
+                <div class="stat-label">de Consumo Ahorrado</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Section 1 -->
+    <section class="feature-section">
+        <div class="feature-container">
+            <div class="feature-text">
+                <div class="feature-badge">Tecnología Avanzada</div>
+                <h2 class="feature-title">SoleMio es el sistema solar diseñado para la libertad energética total.</h2>
+                <p class="feature-description">No más facturas elevadas, generadores ruidosos y dependencia de la red. SoleMio tiene energía para años.</p>
+            </div>
+            <div class="feature-visual">
+                <img src="https://i.imgur.com/1h0BQtn.png" alt="Paneles solares SoleMio">
             </div>
         </div>
     </section>
@@ -712,42 +826,36 @@
         <div class="benefits-grid">
             <div class="benefit-item">
                 <div class="benefit-content">
-                    <div class="benefit-icon">💰</div>
                     <h3 class="benefit-title">Ahorro Inmediato</h3>
-                    <p class="benefit-text">Reduce tu factura eléctrica desde el primer mes. El sistema se paga solo en 3-5 años y después generates ganancias por 20+ años más.</p>
+                    <p class="benefit-text">Reduce tu factura eléctrica desde el primer mes. El sistema se paga solo en 3-5 años y después generas ganancias por 20+ años más.</p>
                 </div>
             </div>
             <div class="benefit-item">
                 <div class="benefit-content">
-                    <div class="benefit-icon">🌱</div>
                     <h3 class="benefit-title">Energía Limpia</h3>
                     <p class="benefit-text">Contribuye al cuidado del medio ambiente usando energía 100% renovable. Reduce tu huella de carbono significativamente.</p>
                 </div>
             </div>
             <div class="benefit-item">
                 <div class="benefit-content">
-                    <div class="benefit-icon">🏠</div>
                     <h3 class="benefit-title">Aumenta el Valor</h3>
                     <p class="benefit-text">Los paneles solares incrementan el valor de tu propiedad hasta un 15%. Una inversión que se revaloriza con el tiempo.</p>
                 </div>
             </div>
             <div class="benefit-item">
                 <div class="benefit-content">
-                    <div class="benefit-icon">⚡</div>
                     <h3 class="benefit-title">Independencia Energética</h3>
                     <p class="benefit-text">Libérate de los aumentos constantes en las tarifas eléctricas. Genera tu propia energía y controla tus costos.</p>
                 </div>
             </div>
             <div class="benefit-item">
                 <div class="benefit-content">
-                    <div class="benefit-icon">🛡️</div>
                     <h3 class="benefit-title">Tecnología Confiable</h3>
                     <p class="benefit-text">Paneles de última generación con 25 años de garantía. Tecnología probada y mantenimiento mínimo requerido.</p>
                 </div>
             </div>
             <div class="benefit-item">
                 <div class="benefit-content">
-                    <div class="benefit-icon">💳</div>
                     <h3 class="benefit-title">Financiación Flexible</h3>
                     <p class="benefit-text">Opciones de financiamiento sin enganche. Paga mensualidades menores a tu factura eléctrica actual.</p>
                 </div>
@@ -758,34 +866,41 @@
     <!-- Calculator Section -->
     <section class="calculator" id="calculadora">
         <div class="calculator-container">
+    <!-- Calculator Section -->
+    <section class="calculator" id="calculadora">
+        <div class="calculator-container">
             <h2 class="section-title">Calcula tu Ahorro</h2>
             <div class="calculator-form">
-                <div class="form-group">
-                    <label for="bill">Factura eléctrica mensual promedio ($ARS):</label>
-                    <input type="number" id="bill" placeholder="Ej: 25000" required>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bill">Factura mensual promedio ($ARS):</label>
+                        <input type="number" id="bill" placeholder="Ej: 25000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="consumption">Consumo mensual (kWh):</label>
+                        <input type="number" id="consumption" placeholder="Ej: 400" required>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="consumption">Consumo mensual promedio (kWh):</label>
-                    <input type="number" id="consumption" placeholder="Ej: 400" required>
-                </div>
-                <div class="form-group">
-                    <label for="location">Provincia:</label>
-                    <select id="location" required>
-                        <option value="">Selecciona tu provincia</option>
-                        <option value="norte">Norte (Salta, Tucumán, Santiago del Estero)</option>
-                        <option value="centro">Centro (Buenos Aires, Córdoba, Santa Fe)</option>
-                        <option value="oeste">Oeste (Mendoza, San Juan, San Luis)</option>
-                        <option value="sur">Sur (Neuquén, Río Negro, Chubut)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="roof-type">Tipo de techo:</label>
-                    <select id="roof-type" required>
-                        <option value="">Selecciona el tipo</option>
-                        <option value="concrete">Concreto</option>
-                        <option value="metal">Lámina metálica</option>
-                        <option value="tile">Teja</option>
-                    </select>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="location">Provincia:</label>
+                        <select id="location" required>
+                            <option value="">Selecciona tu provincia</option>
+                            <option value="norte">Norte (Salta, Tucumán, Santiago del Estero)</option>
+                            <option value="centro">Centro (Buenos Aires, Córdoba, Santa Fe)</option>
+                            <option value="oeste">Oeste (Mendoza, San Juan, San Luis)</option>
+                            <option value="sur">Sur (Neuquén, Río Negro, Chubut)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="roof-type">Tipo de techo:</label>
+                        <select id="roof-type" required>
+                            <option value="">Selecciona el tipo</option>
+                            <option value="concrete">Concreto</option>
+                            <option value="metal">Lámina metálica</option>
+                            <option value="tile">Teja</option>
+                        </select>
+                    </div>
                 </div>
                 <button type="button" class="calculate-btn" onclick="calculateSavings()">Calcular Ahorro</button>
                 
@@ -798,31 +913,11 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonios">
-        <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial">
-                <p class="testimonial-text">En 12 meses ya se había pagado sola la instalación. Mi factura pasó de $45.000 a solo $8.000 pesos mensuales. Excelente asesoramiento.</p>
-                <div class="testimonial-author">- María Elena González, Buenos Aires</div>
-            </div>
-            <div class="testimonial">
-                <p class="testimonial-text">Muy profesionales desde el análisis inicial hasta la puesta en marcha. Los paneles funcionan perfectamente y el ahorro es inmediato.</p>
-                <div class="testimonial-author">- Roberto Fernández, Mendoza</div>
-            </div>
-            <div class="testimonial">
-                <p class="testimonial-text">Me hicieron 3 propuestas diferentes y elegí la que mejor se adaptaba a mis necesidades. Súper recomendable para el agro.</p>
-                <div class="testimonial-author">- Juan Carlos Morales, Córdoba</div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section class="contact" id="contacto">
-        <h2 class="section-title">Contáctanos</h2>
         <div class="contact-container">
             <div class="contact-info">
-                <h3>Información de Contacto</h3>
+                <h2 class="section-title">Contáctanos</h2>
                 <div class="contact-item">
                     <span>📍</span>
                     <div>
@@ -846,7 +941,7 @@
                 </div>
             </div>
             <form class="contact-form" onsubmit="submitForm(event)">
-                <h3 style="margin-bottom: 1rem; color: #1e3c72;">Solicita tu Cotización Gratuita</h3>
+                <h3>Solicita tu Cotización Gratuita</h3>
                 <input type="text" name="name" placeholder="Nombre completo" required>
                 <input type="email" name="email" placeholder="Correo electrónico" required>
                 <input type="tel" name="phone" placeholder="Teléfono" required>
@@ -871,18 +966,22 @@
     </a>
 
     <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    
-                    // Alternative smoother approach using scrollTo
                     const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - 80;
                     window.scrollTo({
                         top: targetPosition,
@@ -890,6 +989,25 @@
                     });
                 }
             });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe feature sections
+        document.querySelectorAll('.feature-text, .feature-visual').forEach(el => {
+            observer.observe(el);
         });
 
         // Calculator functionality
@@ -963,4 +1081,22 @@
             submitBtn.disabled = true;
 
             setTimeout(() => {
-                alert('¡Gracias por tu interés! Nos pondremos en contacto contigo en
+                alert('¡Gracias por tu interés! Nos pondremos en contacto contigo en menos de 24 horas.');
+                event.target.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        }
+
+        // Parallax effect for hero background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero');
+            if (parallax) {
+                const speed = scrolled * 0.5;
+                parallax.style.backgroundPositionY = speed + 'px';
+            }
+        });
+    </script>
+</body>
+</html>
