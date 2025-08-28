@@ -572,12 +572,13 @@
             margin-bottom: 1rem;
         }
 
-        /* Contact Section */
+        /* Contact Section - Complete UX/UI Redesign */
         .contact {
-            background: linear-gradient(135deg, #1b4332 0%, #2d5016 100%);
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
             padding: 120px 0;
             color: white;
             position: relative;
+            overflow: hidden;
         }
 
         .contact::before {
@@ -587,104 +588,312 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="contactBg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:rgba(27,67,50,0.95)"/><stop offset="100%" style="stop-color:rgba(45,80,22,0.95)"/></linearGradient></defs><rect width="1200" height="800" fill="url(%23contactBg)"/><circle cx="200" cy="150" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="800" cy="300" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="1000" cy="200" r="4" fill="rgba(255,255,255,0.1)"/><circle cx="400" cy="600" r="3" fill="rgba(255,255,255,0.1)"/></svg>');
+            background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.05) 0%, transparent 50%), 
+                        radial-gradient(circle at 80% 60%, rgba(255,255,255,0.03) 0%, transparent 50%);
             z-index: 1;
         }
 
-        .contact-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6rem;
+        .contact-hero {
+            text-align: center;
+            margin-bottom: 6rem;
             position: relative;
             z-index: 2;
         }
 
-        .contact .section-title {
-            color: white;
-            margin-bottom: 3rem;
-            text-align: left;
+        .contact-hero h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-hero p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 500px;
+            gap: 8rem;
+            align-items: start;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-info {
+            padding-top: 2rem;
         }
 
         .contact-info h3 {
-            color: white;
-            margin-bottom: 2rem;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 300;
+            margin-bottom: 3rem;
+            opacity: 0.9;
         }
 
         .contact-item {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 2.5rem;
-            gap: 1.2rem;
-        }
-
-        .contact-item span {
-            font-size: 1.3rem;
-            margin-top: 0.2rem;
-            min-width: 1.5rem;
-        }
-
-        .contact-item div {
-            flex: 1;
-        }
-
-        .contact-item strong {
-            font-weight: 500;
-            font-size: 1.1rem;
-            display: block;
-            margin-bottom: 0.3rem;
-        }
-
-        .contact-form {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            padding: 3rem;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 16px 40px rgba(0,0,0,0.1);
-        }
-
-        .contact-form h3 {
-            color: white;
+            align-items: center;
             margin-bottom: 2rem;
-            font-size: 1.8rem;
-            font-weight: 300;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 1.2rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
-            font-size: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            backdrop-filter: blur(5px);
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
         }
 
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder {
-            color: rgba(255, 255, 255, 0.7);
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
         }
 
-        .contact-form input:focus,
-        .contact-form textarea:focus {
+        .contact-item-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .contact-item-content h4 {
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+            font-size: 1rem;
+        }
+
+        .contact-item-content p {
+            opacity: 0.8;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Form Card - Premium Design */
+        .contact-form-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(30px);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 
+                0 32px 64px rgba(0,0,0,0.2),
+                0 0 0 1px rgba(255,255,255,0.1),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1b4332, #52734d, #1b4332);
+            background-size: 200% 100%;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 200% 0; }
+            50% { background-position: -200% 0; }
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .form-header h3 {
+            color: #171a20;
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: #5c5e62;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .form-benefits {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .form-benefit {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #1b4332;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .form-benefit::before {
+            content: '✓';
+            background: #1b4332;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        .contact-form {
+            color: #171a20;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #171a20;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.2rem 1rem;
+            border: 2px solid #e8e8e8;
+            border-radius: 12px;
+            font-size: 1rem;
+            background: white;
+            color: #171a20;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
             outline: none;
-            border-color: rgba(255, 255, 255, 0.6);
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+            border-color: #1b4332;
+            box-shadow: 0 0 0 4px rgba(27, 67, 50, 0.1);
+            transform: translateY(-1px);
         }
 
-        .contact-form textarea {
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #9ca3af;
+        }
+
+        .form-group textarea {
             height: 120px;
             resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #1b4332 0%, #52734d 100%);
+            color: white;
+            padding: 1.4rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(27, 67, 50, 0.3);
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .trust-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e8e8e8;
+        }
+
+        .trust-item {
+            text-align: center;
+            color: #5c5e62;
+            font-size: 0.8rem;
+        }
+
+        .trust-item strong {
+            display: block;
+            color: #1b4332;
+            font-size: 0.9rem;
+            margin-bottom: 0.2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+                max-width: 600px;
+            }
+
+            .contact-form-card {
+                padding: 2.5rem;
+            }
+
+            .form-benefits {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-form-card {
+                padding: 2rem;
+                border-radius: 16px;
+            }
+
+            .trust-indicators {
+                flex-direction: column;
+                gap: 1rem;
+            }
         }
 
         .submit-btn {
@@ -954,40 +1163,96 @@
 
     <!-- Contact Section -->
     <section class="contact" id="contacto">
+        <div class="contact-hero">
+            <h2>Comienza tu Revolución Energética</h2>
+            <p>Únete a miles de familias que ya disfrutan de energía limpia, económica y sostenible</p>
+        </div>
+        
         <div class="contact-container">
             <div class="contact-info">
-                <h2 class="section-title">Contáctanos</h2>
+                <h3>¿Cómo te podemos ayudar?</h3>
+                
                 <div class="contact-item">
-                    <span>📍</span>
-                    <div>
-                        <strong>Cobertura Nacional:</strong><br>
-                        Trabajamos en todo el país
+                    <div class="contact-item-icon">🌍</div>
+                    <div class="contact-item-content">
+                        <h4>Cobertura Nacional</h4>
+                        <p>Trabajamos en todo el país</p>
                     </div>
                 </div>
+                
                 <div class="contact-item">
-                    <span>📞</span>
-                    <div>
-                        <strong>Teléfono:</strong><br>
-                        +54 9 11 7372-4114
+                    <div class="contact-item-icon">📞</div>
+                    <div class="contact-item-content">
+                        <h4>Teléfono</h4>
+                        <p>+54 9 11 7372-4114</p>
                     </div>
                 </div>
+                
                 <div class="contact-item">
-                    <span>📧</span>
-                    <div>
-                        <strong>Email:</strong><br>
-                        info@solemio.com.ar
+                    <div class="contact-item-icon">✉️</div>
+                    <div class="contact-item-content">
+                        <h4>Email</h4>
+                        <p>info@solemio.com.ar</p>
                     </div>
                 </div>
             </div>
-            <form class="contact-form" onsubmit="submitForm(event)">
-                <h3>Solicita tu Cotización Gratuita</h3>
-                <input type="text" name="name" placeholder="Nombre completo" required>
-                <input type="email" name="email" placeholder="Correo electrónico" required>
-                <input type="tel" name="phone" placeholder="Teléfono" required>
-                <input type="text" name="city" placeholder="Ciudad" required>
-                <textarea name="message" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
-                <button type="submit" class="submit-btn">Enviar Solicitud</button>
-            </form>
+            
+            <div class="contact-form-card">
+                <div class="form-header">
+                    <h3>Solicita tu Cotización Gratuita</h3>
+                    <p>Recibe una propuesta personalizada en menos de 24 horas</p>
+                </div>
+                
+                <div class="form-benefits">
+                    <div class="form-benefit">Consulta gratuita</div>
+                    <div class="form-benefit">Sin compromiso</div>
+                    <div class="form-benefit">Respuesta en 24h</div>
+                </div>
+                
+                <form class="contact-form" onsubmit="submitForm(event)">
+                    <div class="form-group">
+                        <label for="name">Nombre completo *</label>
+                        <input type="text" id="name" name="name" placeholder="Ingresa tu nombre" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Correo electrónico *</label>
+                        <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Teléfono *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+54 9 11 1234-5678" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="city">Ciudad</label>
+                        <input type="text" id="city" name="city" placeholder="¿Dónde te encuentras?">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Cuéntanos sobre tu proyecto</label>
+                        <textarea id="message" name="message" placeholder="Descripción de tu hogar, consumo aproximado, expectativas..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Solicitar Cotización Gratuita</button>
+                </form>
+                
+                <div class="trust-indicators">
+                    <div class="trust-item">
+                        <strong>350+</strong>
+                        Instalaciones
+                    </div>
+                    <div class="trust-item">
+                        <strong>5 años</strong>
+                        Experiencia
+                    </div>
+                    <div class="trust-item">
+                        <strong>25 años</strong>
+                        Garantía
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
