@@ -107,28 +107,92 @@
             transform: translateY(-1px);
         }
 
-        /* Hero Section - Pebble Style */
+        /* Hero Section - Product Hero Style */
         .hero {
             height: 100vh;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            background: linear-gradient(135deg, rgba(27, 67, 50, 0.9) 0%, rgba(45, 80, 22, 0.8) 100%), url('https://i.imgur.com/A9Jg4X5.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: linear-gradient(135deg, #1b4332 0%, #2d5016 100%);
             color: white;
             overflow: hidden;
         }
 
-        .hero-content {
-            max-width: 1400px;
-            width: 100%;
-            text-align: center;
-            padding: 0 2rem;
+        /* Texto gigante detrás del producto */
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(4rem, 12vw, 18rem);
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.08);
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            white-space: nowrap;
+            z-index: 1;
+            user-select: none;
+            
+            /* Estado inicial - oculto */
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.8);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .hero-text.visible {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* Contenedor del producto solar */
+        .solar-product-container {
             position: relative;
             z-index: 2;
+            max-width: 600px;
+            width: 90%;
+            
+            /* Estado inicial */
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+        }
+
+        .solar-product-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .solar-panel-image {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.4));
+            transition: transform 0.4s ease;
+        }
+
+        .solar-product-container:hover .solar-panel-image {
+            transform: scale(1.03) rotate(1deg);
+        }
+
+        /* Información del producto */
+        .product-info {
+            position: absolute;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: white;
+            z-index: 3;
+            
+            /* Estado inicial */
+            opacity: 0;
+            transform: translateX(-50%) translateY(40px);
+            transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s;
+        }
+
+        .product-info.visible {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
         }
 
         .hero-badge {
@@ -139,33 +203,27 @@
             border-radius: 50px;
             font-size: 0.9rem;
             font-weight: 500;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             backdrop-filter: blur(10px);
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.3s forwards;
         }
 
         .hero-title {
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 300;
             line-height: 1.1;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             letter-spacing: -0.02em;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.5s forwards;
         }
 
         .hero-subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
             font-weight: 300;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             opacity: 0.9;
             line-height: 1.4;
-            max-width: 600px;
+            max-width: 500px;
             margin-left: auto;
             margin-right: auto;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.7s forwards;
         }
 
         .hero-buttons {
@@ -173,8 +231,70 @@
             gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.9s forwards;
+        }
+
+        /* Partículas solares decorativas */
+        .solar-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .solar-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 215, 0, 0.6);
+            border-radius: 50%;
+            animation: solarFloat 8s ease-in-out infinite;
+        }
+
+        .solar-particle:nth-child(1) {
+            top: 15%;
+            left: 8%;
+            animation-delay: 0s;
+        }
+
+        .solar-particle:nth-child(2) {
+            top: 70%;
+            left: 85%;
+            animation-delay: 3s;
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .solar-particle:nth-child(3) {
+            top: 85%;
+            left: 25%;
+            animation-delay: 6s;
+        }
+
+        .solar-particle:nth-child(4) {
+            top: 25%;
+            left: 75%;
+            animation-delay: 1.5s;
+            background: rgba(200, 214, 49, 0.5);
+        }
+
+        .solar-particle:nth-child(5) {
+            top: 60%;
+            left: 15%;
+            animation-delay: 4.5s;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes solarFloat {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-30px) scale(1.2);
+                opacity: 0.8;
+            }
         }
 
         .btn-primary {
@@ -1021,13 +1141,69 @@
 
     <!-- Hero Section -->
     <section class="hero" id="inicio">
-        <div class="hero-content">
-            <div class="hero-badge">🌱 Energía Sostenible</div>
-            <h1 class="hero-title">Es eléctrico. Es inteligente.<br>Y controlas tu futuro<br>energético.</h1>
-            <p class="hero-subtitle">Tomemos de la naturaleza su perfección, sin cambiarla. Instalaciones profesionales que transforman tu hogar en una fuente de energía limpia.</p>
-            <div class="hero-buttons">
-                <a href="#calculadora" class="btn-primary">Calcular Ahorro</a>
-                <a href="#beneficios" class="btn-secondary">Conocer Más</a>
+        <!-- Texto gigante detrás -->
+        <div class="hero-text" id="heroText">
+            SOLE MIO
+        </div>
+
+        <!-- Partículas solares decorativas -->
+        <div class="solar-particles">
+            <div class="solar-particle"></div>
+            <div class="solar-particle"></div>
+            <div class="solar-particle"></div>
+            <div class="solar-particle"></div>
+            <div class="solar-particle"></div>
+        </div>
+
+        <!-- Panel solar en primer plano -->
+        <div class="solar-product-container" id="solarProduct">
+            <!-- SVG de panel solar -->
+            <svg class="solar-panel-image" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="panelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#1a365d"/>
+                        <stop offset="50%" style="stop-color:#2d5016"/>
+                        <stop offset="100%" style="stop-color:#0f2027"/>
+                    </linearGradient>
+                    <linearGradient id="cellGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#4a5568"/>
+                        <stop offset="100%" style="stop-color:#2d3748"/>
+                    </linearGradient>
+                    <filter id="solarShadow" x="-50%" y="-50%" width="200%" height="200%">
+                        <feDropShadow dx="0" dy="15" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+                    </filter>
+                    <pattern id="solarCells" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <rect width="35" height="35" fill="url(#cellGradient)" stroke="#1a202c" stroke-width="1"/>
+                        <rect x="3" y="3" width="29" height="29" fill="#4a5568" stroke="#2d3748" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                
+                <!-- Marco del panel -->
+                <rect x="50" y="50" width="400" height="200" rx="8" ry="8" 
+                      fill="url(#panelGradient)" filter="url(#solarShadow)"/>
+                
+                <!-- Celdas solares -->
+                <rect x="60" y="60" width="380" height="180" rx="4" ry="4" 
+                      fill="url(#solarCells)"/>
+                
+                <!-- Conectores -->
+                <rect x="440" y="125" width="15" height="50" rx="7" fill="#2d3748"/>
+                <circle cx="447.5" cy="135" r="3" fill="#4a5568"/>
+                <circle cx="447.5" cy="165" r="3" fill="#4a5568"/>
+                
+                <!-- Reflejo de luz */
+                <rect x="70" y="70" width="100" height="20" rx="10" 
+                      fill="rgba(255,255,255,0.2)" opacity="0.6">
+                    <animate attributeName="opacity" values="0.3;0.8;0.3" 
+                             dur="4s" repeatCount="indefinite"/>
+                </rect>
+            </svg>
+
+            <!-- Información del producto -->
+            <div class="product-info" id="productInfo">
+                <div class="hero-buttons">
+                    <a href="#calculadora" class="btn-primary">Calcular Ahorro</a>
+                </div>
             </div>
         </div>
     </section>
@@ -1277,6 +1453,53 @@
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
+            }
+        });
+
+        // Hero Product Animation - IntersectionObserver
+        function initHeroAnimation() {
+            const heroText = document.getElementById('heroText');
+            const solarProduct = document.getElementById('solarProduct');
+            const productInfo = document.getElementById('productInfo');
+
+            const heroObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Secuencia de animación hero
+                        setTimeout(() => {
+                            heroText.classList.add('visible');
+                        }, 300);
+
+                        setTimeout(() => {
+                            solarProduct.classList.add('visible');
+                        }, 600);
+
+                        setTimeout(() => {
+                            productInfo.classList.add('visible');
+                        }, 900);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            heroObserver.observe(document.getElementById('inicio'));
+        }
+
+        // Initialize hero animation on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                initHeroAnimation();
+            }, 500);
+        });
+
+        // Parallax effect for hero text
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroText = document.getElementById('heroText');
+            if (heroText) {
+                const parallaxSpeed = 0.2;
+                heroText.style.transform = `translate(-50%, -50%) scale(1) translateY(${scrolled * parallaxSpeed}px)`;
             }
         });
 
