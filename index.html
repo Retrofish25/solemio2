@@ -107,22 +107,23 @@
             transform: translateY(-1px);
         }
 
-        /* Hero Section - Product Hero Style */
+        /* Hero Section - Modified Layout */
         .hero {
             height: 100vh;
             position: relative;
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             justify-content: center;
             background: linear-gradient(135deg, #1b4332 0%, #2d5016 100%);
             color: white;
             overflow: hidden;
+            padding-bottom: 0;
         }
 
-        /* Texto gigante detrás del producto */
+        /* Texto gigante detrás del producto - Modificado */
         .hero-text {
             position: absolute;
-            top: 50%;
+            top: 35%;
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: clamp(4rem, 12vw, 18rem);
@@ -145,22 +146,25 @@
             transform: translate(-50%, -50%) scale(1);
         }
 
-        /* Contenedor del producto solar */
+        /* Contenedor del producto solar - Modificado para pegarlo al bottom */
         .solar-product-container {
-            position: relative;
-            z-index: 2;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
             max-width: 600px;
             width: 90%;
+            z-index: 2;
             
             /* Estado inicial */
             opacity: 0;
-            transform: translateY(60px);
+            transform: translateX(-50%) translateY(60px);
             transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
         }
 
         .solar-product-container.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateX(-50%) translateY(0);
         }
 
         .solar-panel-image {
@@ -174,15 +178,16 @@
             transform: scale(1.03) rotate(1deg);
         }
 
-        /* Información del producto */
+        /* Información del producto - Reposicionada arriba del panel */
         .product-info {
             position: absolute;
-            bottom: -100px;
+            bottom: 100%;
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
             color: white;
             z-index: 3;
+            margin-bottom: 2rem;
             
             /* Estado inicial */
             opacity: 0;
@@ -239,7 +244,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 70%;
             z-index: 0;
             pointer-events: none;
         }
@@ -260,14 +265,14 @@
         }
 
         .solar-particle:nth-child(2) {
-            top: 70%;
+            top: 30%;
             left: 85%;
             animation-delay: 3s;
             background: rgba(255, 255, 255, 0.4);
         }
 
         .solar-particle:nth-child(3) {
-            top: 85%;
+            top: 45%;
             left: 25%;
             animation-delay: 6s;
         }
@@ -280,7 +285,7 @@
         }
 
         .solar-particle:nth-child(5) {
-            top: 60%;
+            top: 35%;
             left: 15%;
             animation-delay: 4.5s;
             background: rgba(255, 255, 255, 0.3);
@@ -1016,24 +1021,6 @@
             }
         }
 
-        .submit-btn {
-            width: 100%;
-            background: white;
-            color: #1b4332;
-            padding: 1.2rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            background: rgba(255, 255, 255, 0.95);
-            transform: translateY(-2px);
-        }
-
         /* Footer */
         footer {
             background: #171a20;
@@ -1121,6 +1108,20 @@
             .stat-item {
                 padding: 2rem 1.5rem;
             }
+
+            /* Hero mobile adjustments */
+            .hero-text {
+                top: 30%;
+                font-size: clamp(3rem, 10vw, 12rem);
+            }
+
+            .solar-product-container {
+                max-width: 90%;
+            }
+
+            .product-info {
+                margin-bottom: 1rem;
+            }
         }
     </style>
 </head>
@@ -1133,6 +1134,7 @@
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#beneficios">Beneficios</a></li>
                 <li><a href="#calculadora">Cotización</a></li>
+                <li><a href="#contacto">Contacto</a></li>
             </ul>
             <a href="mailto:retrofishco@gmail.com?subject=Solicitud%20de%20Cotización%20-%20SoleMio&body=Hola,%0D%0A%0D%0AMe%20interesa%20recibir%20una%20cotización%20para%20paneles%20solares." class="cta-button">Cotizar Ahora</a>
         </nav>
@@ -1190,7 +1192,7 @@
                 <circle cx="447.5" cy="135" r="3" fill="#4a5568"/>
                 <circle cx="447.5" cy="165" r="3" fill="#4a5568"/>
                 
-                <!-- Reflejo de luz */
+                <!-- Reflejo de luz -->
                 <rect x="70" y="70" width="100" height="20" rx="10" 
                       fill="rgba(255,255,255,0.2)" opacity="0.6">
                     <animate attributeName="opacity" values="0.3;0.8;0.3" 
@@ -1289,9 +1291,6 @@
     <!-- Calculator Section -->
     <section class="calculator" id="calculadora">
         <div class="calculator-container">
-    <!-- Calculator Section -->
-    <section class="calculator" id="calculadora">
-        <div class="calculator-container">
             <h2 class="section-title">Calcula tu Ahorro</h2>
             <div class="calculator-form">
                 <div class="form-row">
@@ -1336,13 +1335,102 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 SoleMio - Energía Sostenible. Todos los derechos reservados.</p>
-            <p>Instalaciones Profesionales | Cuadrilla Propia</p>
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="contact-hero">
+            <h2>Comienza tu Revolución Energética</h2>
+            <p>Únete a miles de familias que ya disfrutan de energía limpia, económica y sostenible</p>
         </div>
-    </footer>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>¿Cómo te podemos ayudar?</h3>
+                
+                <div class="contact-item">
+                    <div class="contact-item-icon">🌍</div>
+                    <div class="contact-item-content">
+                        <h4>Cobertura Nacional</h4>
+                        <p>Trabajamos en todo el país</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-item-icon">📞</div>
+                    <div class="contact-item-content">
+                        <h4>Teléfono</h4>
+                        <p>+54 9 11 7372-4114</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-item-icon">✉️</div>
+                    <div class="contact-item-content">
+                        <h4>Email</h4>
+                        <p>info@solemio.com.ar</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form-card">
+                <div class="form-header">
+                    <h3>Solicita tu Cotización Gratuita</h3>
+                    <p>Recibe una propuesta personalizada en menos de 24 horas</p>
+                </div>
+                
+                <div class="form-benefits">
+                    <div class="form-benefit">Consulta gratuita</div>
+                    <div class="form-benefit">Sin compromiso</div>
+                    <div class="form-benefit">Respuesta en 24h</div>
+                </div>
+                
+                <form class="contact-form" onsubmit="submitForm(event)">
+                    <div class="form-group">
+                        <label for="name">Nombre completo *</label>
+                        <input type="text" id="name" name="name" placeholder="Ingresa tu nombre" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Correo electrónico *</label>
+                        <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Teléfono *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+54 9 11 1234-5678" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="city">Ciudad</label>
+                        <input type="text" id="city" name="city" placeholder="¿Dónde te encuentras?">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Cuéntanos sobre tu proyecto</label>
+                        <textarea id="message" name="message" placeholder="Descripción de tu hogar, consumo aproximado, expectativas..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Solicitar Cotización Gratuita</button>
+                </form>
+                
+                <div class="trust-indicators">
+                    <div class="trust-item">
+                        <strong>350+</strong>
+                        Instalaciones
+                    </div>
+                    <div class="trust-item">
+                        <strong>5 años</strong>
+                        Experiencia
+                    </div>
+                    <div class="trust-item">
+                        <strong>25 años</strong>
+                        Garantía
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <p>&copy; 2024 SoleMio - Energía Sostenible. Todos los derechos reservados.</p>
@@ -1403,13 +1491,17 @@
             }, 500);
         });
 
-        // Parallax effect for hero text
+        // Parallax effect for hero text - Modified to stop earlier
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const heroText = document.getElementById('heroText');
-            if (heroText) {
+            const heroHeight = window.innerHeight;
+            
+            if (heroText && scrolled < heroHeight) {
                 const parallaxSpeed = 0.2;
-                heroText.style.transform = `translate(-50%, -50%) scale(1) translateY(${scrolled * parallaxSpeed}px)`;
+                const maxScroll = heroHeight * 0.7; // Stop at 70% of hero height
+                const adjustedScroll = Math.min(scrolled, maxScroll);
+                heroText.style.transform = `translate(-50%, -50%) scale(1) translateY(${adjustedScroll * parallaxSpeed}px)`;
             }
         });
 
@@ -1524,16 +1616,6 @@
                 submitBtn.disabled = false;
             }, 2000);
         }
-
-        // Parallax effect for hero background
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.hero');
-            if (parallax) {
-                const speed = scrolled * 0.5;
-                parallax.style.backgroundPositionY = speed + 'px';
-            }
-        });
     </script>
 </body>
 </html>
