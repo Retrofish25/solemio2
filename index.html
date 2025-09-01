@@ -210,13 +210,14 @@
             }
         }
 
-        /* Stats Section - Floating Cards */
+        /* Stats Section - Fixed Margins */
         .stats {
             background: #f8f9fa;
-            padding: 0;
+            padding: 4rem 0;
             position: relative;
             transform: translateY(-100px);
             z-index: 10;
+            margin-bottom: 2rem;
         }
 
         .stats-container {
@@ -273,7 +274,130 @@
             }
         }
 
-        /* Feature Sections - Pebble Style */
+        /* Solar Systems Section */
+        .solar-systems {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .systems-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .systems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .system-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .system-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1b4332, #52734d, #1b4332);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .system-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+        }
+
+        .system-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .system-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #1b4332, #52734d);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .system-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #171a20;
+            margin-bottom: 1rem;
+        }
+
+        .system-description {
+            color: #5c5e62;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .system-features {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .system-features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .system-features li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+            color: #5c5e62;
+            font-size: 0.95rem;
+        }
+
+        .system-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #1b4332;
+            font-weight: bold;
+        }
+
+        .system-ideal {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .system-ideal-title {
+            font-weight: 500;
+            color: #1b4332;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .system-ideal-text {
+            color: #5c5e62;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
         .feature-section {
             min-height: 100vh;
             display: flex;
@@ -989,6 +1113,7 @@
             <div class="logo">SoleMio</div>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sistemas">Sistemas</a></li>
                 <li><a href="#beneficios">Beneficios</a></li>
                 <li><a href="#calculadora">Cotización</a></li>
                 <li><a href="#contacto">Contacto</a></li>
@@ -1031,6 +1156,90 @@
             <div class="stat-item">
                 <div class="stat-number">90%</div>
                 <div class="stat-label">de Consumo Ahorrado</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solar Systems Section -->
+    <section class="solar-systems" id="sistemas">
+        <div class="systems-container">
+            <h2 class="section-title">Sistemas de Energía Solar</h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto; color: #5c5e62; font-size: 1.1rem;">
+                Ofrecemos tres tipos de sistemas solares diseñados para diferentes necesidades y presupuestos
+            </p>
+            
+            <div class="systems-grid">
+                <!-- On-Grid System -->
+                <div class="system-card">
+                    <div class="system-icon">🔌</div>
+                    <h3 class="system-title">Sistema On-Grid</h3>
+                    <p class="system-description">
+                        Conectado a la red eléctrica, permite inyectar energía excedente y obtener créditos por la energía generada.
+                    </p>
+                    <div class="system-features">
+                        <ul>
+                            <li>Conexión directa a la red eléctrica</li>
+                            <li>Inyección de excedentes</li>
+                            <li>Facturación neta (créditos por energía)</li>
+                            <li>Menor costo de inversión</li>
+                            <li>Mantenimiento mínimo</li>
+                        </ul>
+                    </div>
+                    <div class="system-ideal">
+                        <div class="system-ideal-title">IDEAL PARA:</div>
+                        <div class="system-ideal-text">
+                            Hogares y empresas con consumo constante durante el día, en zonas con red eléctrica estable.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Off-Grid System -->
+                <div class="system-card">
+                    <div class="system-icon">🔋</div>
+                    <h3 class="system-title">Sistema Off-Grid</h3>
+                    <p class="system-description">
+                        Sistema autónomo con baterías, completamente independiente de la red eléctrica.
+                    </p>
+                    <div class="system-features">
+                        <ul>
+                            <li>Independencia total de la red</li>
+                            <li>Incluye banco de baterías</li>
+                            <li>Energía disponible 24/7</li>
+                            <li>Ideal para zonas remotas</li>
+                            <li>Respaldo en cortes de luz</li>
+                        </ul>
+                    </div>
+                    <div class="system-ideal">
+                        <div class="system-ideal-title">IDEAL PARA:</div>
+                        <div class="system-ideal-text">
+                            Casas de campo, zonas rurales sin red eléctrica, o lugares con cortes frecuentes de luz.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hybrid System -->
+                <div class="system-card">
+                    <div class="system-icon">⚡</div>
+                    <h3 class="system-title">Sistema Híbrido</h3>
+                    <p class="system-description">
+                        Combina lo mejor de ambos mundos: conexión a red y almacenamiento en baterías.
+                    </p>
+                    <div class="system-features">
+                        <ul>
+                            <li>Conexión a red + baterías</li>
+                            <li>Respaldo automático en cortes</li>
+                            <li>Optimización inteligente</li>
+                            <li>Máxima eficiencia energética</li>
+                            <li>Control total del consumo</li>
+                        </ul>
+                    </div>
+                    <div class="system-ideal">
+                        <div class="system-ideal-title">IDEAL PARA:</div>
+                        <div class="system-ideal-text">
+                            Hogares y empresas que buscan máxima eficiencia y respaldo ante cortes eléctricos.
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
